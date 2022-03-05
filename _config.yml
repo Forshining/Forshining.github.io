@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "Forshining"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Zihui Weng"
 description              : &description "personal description"
 url                      : https://forshining.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
