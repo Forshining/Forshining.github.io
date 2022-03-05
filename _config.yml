@@ -146,7 +146,6 @@ exclude:
   - package.json
   - tmp
   - vendor
-  - _publications
 keep_files:
   - .git
   - .svn
