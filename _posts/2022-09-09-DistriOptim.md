@@ -29,7 +29,29 @@ $$x^{(k+1)} = W x^{(k)} - \alpha^k \nabla f_i(x^{(k)})$$
 
 ## SAGA
 
+SAGA源于SAG，即stochastic averaging gradient,只不过SAGA得到的估计是对于SAG得到的估计的无偏纠正；其主要思想是创建一个n维数组，其中n为预先设定的数，每次对1,...,n随机抽取，利用存储的所有梯度做一个迭代，将之后得到的迭代点计算抽中的样本所对应的梯度，在数组中进行更新，一般形式如下：
+
+$$
+\begin{align}
+    g_i^{(k)} &= \nabla f_{i,s_k} (x_i^{(k)}) - \nabla f_{i,s_k} (\hat{x_i^{(k)}}) + \frac{1}{N} \sum_{k=1}^n \nabla f_{i,k} (\hat{x_i^{(k)}) \\
+    x_i^{(k+1)} &= x_i^{(k)} - \alpha g_i^k
+\end{align}
+$$
+
+其中，$\hat{x_i^{(k)}}$代表的是对于$\nabla f_i(x)$最近一次的迭代点，每次求得新的$x_i^{(k)}$之后，我们将$x_k$对应的梯度进行更新，其他梯度保持不变。
+
 ## SVRG
+
+由于SAGA开辟了一个O(n)的一个内存空间，当n较大时会影响运算速度，而SVRG则舍弃了开辟内存空间储存近期梯度的方法，而是提出一个双循环的方法，即每一段时间迭代之后设置一个检查点，计算一次全梯度，并以此全梯度作为标准进行下一段时间的迭代，一般形式可以表示为如下：
+
+$$
+\begin{align}
+  v_i^{(k)} &= \nabla f_{i,s_k} (x_i^{(k)}) - (\nabla f_{i,s_k}(\tilde{x_i^{(k)}}) - \nabla f(\tilde{x_i^{(k)}})) \\ 
+  x_i^{(k+1)} &= x_i^{(k)} - \alpha v_i^{(k)}
+\end{align}
+$$
+
+其中，$\tilde{x_i^{(k)}$是在以上迭代T（预先设定）次之后得到，可以选择T次迭代得到的x的平均值，或者通过随机抽样的方式。
 
 # Remove the influence of data-heterogeneity
 
