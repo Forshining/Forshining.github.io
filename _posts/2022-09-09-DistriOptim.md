@@ -1,7 +1,7 @@
 ---
 title: 'Distributed Optimization Algorithms'
 date: 2022-09-09
-permalink: /posts/2022/07/blog-post-EXTRA/
+permalink: /posts/2022/07/blog-post-DistriOptim/
 tags:
   - convex optimization
   - decentralized optimization
