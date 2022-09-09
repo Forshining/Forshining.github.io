@@ -31,7 +31,7 @@ $$x^{(k+1)} = W x^{(k)} - \alpha^k \nabla f_i(x^{(k)})$$
 
 # Remove the influence of data-heterogeneity
 
-在分布式优化问题当中，数据的异质性体现在$f_i(x^{(k)}) \neq f_j(x^{(k)})$，也就是同一个点的梯度可能是不相等的，而一个特殊的场合就是假设该分布式优化问题通过算法（e.g. DGD）得到了一个minimizer，但我们能得到的只有$\sum_i \nabla f_i(x^{\*}) = 0$，所以可以知道在下一次迭代之后不会停留在$x^{\*}$，也就是$x^{\*}$不是一个固定点；而一个根本但不大可能实现的方法就是求得全梯度并以此进行更新，在分布式优化的问题当中这会导致极大的通讯消耗(communication cost)，因此为了解决数据异质性问题，就有了如下的几种有效的解决方法。
+在分布式优化问题当中，数据的异质性体现在$\nabla f_i(x^{(k)}) \neq \nabla f_j(x^{(k)})$，也就是同一个点的梯度可能是不相等的，而一个特殊的场合就是假设该分布式优化问题通过算法（e.g. DGD）得到了一个minimizer，但我们能得到的只有$\sum_i \nabla f_i(x^{\*}) = 0$，所以可以知道在下一次迭代之后不会停留在$x^{\*}$，也就是$x^{\*}$不是一个固定点；而一个根本但不大可能实现的方法就是求得全梯度并以此进行更新，在分布式优化的问题当中这会导致极大的通讯消耗(communication cost)，因此为了解决数据异质性问题，就有了如下的几种有效的解决方法。
 
 ## EXTRA: An Exact first-order algorithm for decentralized consensus optimization
 
