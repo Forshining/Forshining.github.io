@@ -23,11 +23,13 @@ DGD算法本质上是将优化过程分成了两部分：一部分是consensus,�
 
 $$x^{(k+1)} = W x^{(k)} - \alpha^k \nabla f_i(x^{(k)})$$
 
+# Variance-Reduction Techniques
+
 而在SGD中为了获得较好的收敛效果，通常我们会做一个bounded variance的假设，从而使得SGD在逐渐趋于零的步长的设定下能够得到次线性的收敛性，在理论上这体现在引入的bounded variance的假设在上界估计中起到了作用，因此我们在确定下步长之后，考虑缩小bounded variance来提高SGD的速度，也就是方差缩减技术(variance-reduction technique)，常见的方差缩减方法有：SAGA,SVRG：这些方法的核心思想是统计计算当中的control covariates，即利用一个已知期望的随机变量对我们感兴趣的变量做一个无偏估计，利用Rao-Blackwell不等式可以使得目标变量的方差缩小，我将在之后对方差缩减技术做一个介绍，这里不再赘述。而这种方差缩减技术同样可以用在分布式优化的问题中。
 
-其次，对于一阶的分布式优化算法，通常会遇到一个问题：假设我们得到了一个分布式优化的一致解(consensus solution)，因为我们只能得到的条件是各个节点的梯度之和为0，而不能确定每一个节点在一致解上的梯度为0，因此在下一次迭代的过程中，得到的就可能不是这个一致解。而解决这个问题的根本但不大可能实现的办法就是求得全梯度并用全梯度更新，所以一个可行且有效的方法是利用局部gradient tracking来近似全局梯度。
+## SAGA
 
-# Variance-Reduction Techniques
+## SVRG
 
 # Remove the influence of data-heterogeneity
 
@@ -35,8 +37,41 @@ $$x^{(k+1)} = W x^{(k)} - \alpha^k \nabla f_i(x^{(k)})$$
 
 ## EXTRA: An Exact first-order algorithm for decentralized consensus optimization
 
+EXTRA的更新方式如下：
+
+$$
+\begin{align}
+    x^{(k+2)} &= W x^{(k+1)} - \alpha \nabla f(x^{(k+1)}) \\ 
+    x^{(k+1)} &= \tilde{W} x^{(k)} - \alpha \nabla f(x^{(k)})
+\end{align}
+$$
+
+其中，$\tilde{W} = \frac{I + W}{2}或者我们将上两式进行合并，可以得到如下的两种形式：
+
+$$x^{(k+2)} - x^{(k+1)} = W x^{(k+1)} - \tilde{W} x^{(k)} - \alpha (\nabla f(x^{(k+1)}) - \nabla f(x^{(k)})) $$
+
+$$x^{(k+2)} = \tilde{W} x^{(k+1)} - \alpha f(x^{(k+1)}) + \sum_{t=0}^{k+1} (W - \tilde{W}) x^{(k)}$$
+
+从最后一条式子中，我们可以将EXTRA看成是DGD的迭代算法的一个矫正，而且我们可以知道由于$(W - \tilde{W}) x^{(k)}$这一项是逐渐趋于零的，也可以看成是在不断迭代的过程中，需要矫正的量逐渐变小，也同时说明了这个求和是必要的。
+
 ## Exact Diffusion/NIDS/$D^2$
+
+$$
+\begin{align}
+    \psi_i^{(k+1)} &= x_i^{(k)} - \alpha \nabla f_i(x_i^{(k)}) \\ 
+    \phi_i^{(k+1)} &= \psi_i^{(k+1)} + x_i^{(k)} - \psi_i^{(k)} \\
+    x_i^{(k+1)} &= \sum_{j \in N_i} w_{ij} \phi_j^{(k+1)}
+\end{align}
+$$
 
 ## Gradient Tracking Techniques
 
+# Topology of Network/Communication
 
+## Common Topology
+
+## Static Expotential Graph
+
+## One-peer Expotential Graph
+
+## Directed graph
