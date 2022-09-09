@@ -64,7 +64,24 @@ $$
 \end{align}
 $$
 
+其中，第二条式子表示对于得到的local update进行矫正，如果矫正项$x_i^{(k)} - \psi_i^{(k)}$为0，则该算法退化成为DSGD算法；将上三式合并，我们可以得到：
+
+$$x_i^{(k+1)} = \sum_{j \in N_i} w_{ij) (2x_i^{(k)} - x_i^{(k-1)} + \alpha (\nabla f(x_i^{(k)}) - \nabla f(x_i^{(k-1)})))$$
+
+对上式取k极限我们可以知道，即使存在数据异质性，Exact-diffusion可以保持minimizer不变化。
+
 ## Gradient Tracking Techniques
+
+如果我们能够求得到全梯度，那么就可以在取得minimizer之后的迭代过程中能够保持固定，但显然在分布式优化问题当中，全梯度的计算会消耗很大的通讯资源，而且有些节点之间本身无法进行通讯；因此可以采取一种妥协的方法，即对连通的节点进行一次local averaging来近似全梯度，之后利用local averaging gradient作为梯度迭代，一般形式如下：
+
+$$
+\begin{align}
+  x_i^{(k+1)} &= \sum_{j \in N_i} w_{ij} x_r^{(k)} - \alpha d_i^k \\
+  d_i^k &= \sum_{j \in N_i} d_j^k + \nabla f_i(x_i^{(k+1)}) - \nabla f_i(x_i^{(k)})
+\end{align}
+$$
+
+其中，$d_i^0 := \nabla f_i(x_i^0)，取极限之后我们容易看出，local averaging gradient会趋近于全梯度。
 
 # Topology of Network/Communication
 
