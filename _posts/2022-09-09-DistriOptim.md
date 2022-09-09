@@ -66,7 +66,7 @@ $$
 
 其中，第二条式子表示对于得到的local update进行矫正，如果矫正项$x_i^{(k)} - \psi_i^{(k)}$为0，则该算法退化成为DSGD算法；将上三式合并，我们可以得到：
 
-$$x_i^{(k+1)} = \sum_{j \in N_i} w_{ij) (2x_i^{(k)} - x_i^{(k-1)} + \alpha (\nabla f(x_i^{(k)}) - \nabla f(x_i^{(k-1)})))$$
+$$x_i^{(k+1)} = \sum_{j \in N_i} w_{ij} (2x_i^{(k)} - x_i^{(k-1)} + \alpha (\nabla f(x_i^{(k)}) - \nabla f(x_i^{(k-1)})))$$
 
 对上式取k极限我们可以知道，即使存在数据异质性，Exact-diffusion可以保持minimizer不变化。
 
@@ -81,7 +81,7 @@ $$
 \end{align}
 $$
 
-其中，$d_i^0 := \nabla f_i(x_i^0)，取极限之后我们容易看出，local averaging gradient会趋近于全梯度。
+其中，$d_i^0 := \nabla f_i(x_i^0)$，取极限之后我们容易看出，local averaging gradient会趋近于全梯度。
 
 # Topology of Network/Communication
 
