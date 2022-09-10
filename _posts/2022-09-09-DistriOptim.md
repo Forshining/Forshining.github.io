@@ -33,7 +33,7 @@ SAGA源于SAG，即stochastic averaging gradient,只不过SAGA得到的估计是
 
 $$
 \begin{align}
-    g_i^{(k)} &= \nabla f_{i,s_k} (x_i^{(k)}) - \nabla f_{i,s_k} (\hat{x_i^{(k)}}) + \frac{1}{N} \sum_{k=1}^n \nabla f_{i,k} (\hat{x_i^{(k)}) \\
+    g_i^{(k)} &= \nabla f_{i,s_k} (x_i^{(k)}) - \nabla f_{i,s_k} (\hat{x_i^{(k)}}) + \frac{1}{N} \sum_{k=1}^n \nabla f_{i,k} (\hat{x_i^{(k)}}) \\
     x_i^{(k+1)} &= x_i^{(k)} - \alpha g_i^k
 \end{align}
 $$
