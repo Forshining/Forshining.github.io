@@ -107,10 +107,18 @@ $$
 
 # Topology of Network/Communication
 
+由于现实中通讯节点很难满足和其他所有节点结合，因此在网络当中，通讯性能和通讯节点的拓扑结构对于提升优化性能来说非常重要，下面我们给出几种常见以及有效的拓扑结构。
+
 ## Common Topology
+
+常用的网络结构有：环状结构，星形结构，2D-grid,2D-torus,$\frac{1}{2}$-random graph
 
 ## Static Expotential Graph
 
+而在实际训练过程当中，static expotential graph是一种高效但是缺乏可解释性的一种拓扑结构；其具体表示为一个节点只连接和该节点距离为$2^0$,$2^1$,...,$2^{ceiling(log_2(n-1))}$的通讯节点，而对应的权重矩阵表示为每一个点对于连通节点的权重都是等同的。这里笔者合理猜测，这种拓扑结构的可解释性在于，expotential形式的连接能够将DGD算法当中的迭代点通过consensus步骤更快获得minimizer，换句话说，static exponential graph能够使得一个通讯节点能够整合更全面的信息（全梯度）。
+
 ## One-peer Expotential Graph
+
+考虑到static expotential graph的通讯消耗还是会比环状结构或者网格结构大，我们将static expotential graph分解为若干个互不相交的子图，其中每一个子图中的每一个节点都只有一个连通的通讯节点，而且距离均为$2^0$,$2^1$,...,$2^{ceiling(log_2(n-1))}$，训练时按照子图中节点距离，从小到大的顺序循环训练，这样可以减少一次训练时的通讯开支。
 
 ## Directed graph
