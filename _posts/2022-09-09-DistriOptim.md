@@ -103,7 +103,7 @@ $$
 \end{align}
 $$
 
-其中，$d_i^0 := \nabla f_i(x_i^0)$，取极限之后我们容易看出，local averaging gradient会趋近于全梯度。
+其中，$d_i^0 := \nabla f_i(x_i^0)$，取极限之后我们容易看出，local averaging gradient会趋近于全梯度。同时我们可以通过时间序列当中innovation的概念来理解gradient tracking。
 
 # Topology of Network/Communication
 
@@ -122,3 +122,5 @@ $$
 考虑到static expotential graph的通讯消耗还是会比环状结构或者网格结构大，我们将static expotential graph分解为若干个互不相交的子图，其中每一个子图中的每一个节点都只有一个连通的通讯节点，而且距离均为$2^0$,$2^1$,...,$2^{ceiling(log_2(n-1))}$，训练时按照子图中节点距离，从小到大的顺序循环训练，这样可以减少一次训练时的通讯开支。
 
 ## Directed graph
+
+## Time-varying graph
