@@ -7,7 +7,6 @@ tags:
   - Statistics
 ---
 
-# Minimax lower bounds
 In the classical estimation problem in statistics, mean-squared error is a frequantly-used risk function to measure the fitness of certain estimator of certain parameters, which we could generalize as the following formulations:
 
 For a distribution $P \in \mathbb{P}$, we assume that we receive i.i.d. observations $X_i$ drawn according to specific distribution P. Based on these data, our aim is to estimate an unknown parameter $\theta(P) \in \Theta$.  To evaluate the quality of an estimator $\hat{\theta}$, we first give two notions: let $\rho: \Theta \times \Theta \rightarrow \mathbb{R}_{+}$ denote a (semi)metric on the parameter space $\Theta$ and $\Phi: \mathbb{R}_+ \rightarrow \mathbb{R}_+$ be a non-decreasing function with constraint $\Theta(0) = 0$. Hence, we could assess the quality of the estimate $\hat{\theta}(X_1,...,X_n)$ in terms of the generalized risk: 
