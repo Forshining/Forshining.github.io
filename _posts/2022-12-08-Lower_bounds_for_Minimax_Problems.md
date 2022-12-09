@@ -37,9 +37,9 @@ where the infimum ranges over all testing functions.
 
 First we give the definition of KL-divergence,total variance distance and Hellinger distance via the generalized f-divergence:
 
-$$D_f(P||Q) := \inf q(x) f(\frac{p(x)}{q(x)}) d \mu(x)$$
+$$D_f(P||Q) := \int q(x) f(\frac{p(x)}{q(x)}) d \mu(x)$$
 
-- KL-divergence: $f(t)$ = tlogt$
+- KL-divergence: $f(t) = tlogt$
 - Total Variance Distance: $f(t) = \frac{1}{2} |t-1|$
 - Hellinger Distance: $f(t) = (\sqrt{t}-1)^2$
 
