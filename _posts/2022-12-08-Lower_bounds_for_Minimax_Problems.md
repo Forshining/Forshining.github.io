@@ -7,7 +7,6 @@ tags:
   - Statistics
 ---
 
-# Minimax lower bounds
 In the classical estimation problem in statistics, mean-squared error is a frequantly-used risk function to measure the fitness of certain estimator of certain parameters, which we could generalize as the following formulations:
 
 For a distribution $P \in \mathbb{P}$, we assume that we receive i.i.d. observations $X_i$ drawn according to specific distribution P. Based on these data, our aim is to estimate an unknown parameter $\theta(P) \in \Theta$.  To evaluate the quality of an estimator $\hat{\theta}$, we first give two notions: let $\rho: \Theta \times \Theta \rightarrow \mathbb{R_{+}}$ denote a (semi)metric on the parameter space $\Theta$ and $\Phi: \mathbb{R_{+}} \rightarrow \mathbb{R_{+}}$ be a non-decreasing function with constraint $\Theta(0) = 0$. Hence, we could assess the quality of the estimate $\hat{\theta}(X_1,\cdots,X_n)$ in terms of the generalized risk: 
@@ -22,13 +21,48 @@ $$\mathfrak{M}_n(\theta(P),\Phi \circ \rho) = inf_{\hat{\theta}} sup_{P \in \mat
 
 Providing lower bound gives the convergence rate on some sense, which is significant to make comparisons among different estimators to conclude the best one. Accordingly, there are a few tools which are widely used in proving the lower bound of minimax problems, such as Le Cam's, Fano's and Assouad method that we will illustrate in the following context.
 
-## Methodology
-### Priliminaries
+# Methodology
+## Preliminaries
+Here we provide the necessary preliminaries for the lower bounds for minimax problems:
+
+### Transformation between Estimation and Testing
+
+The minimax error (7.1.1) has lower bound:
+
+$$ \mathfrak{M}_n(\theta(\mathcal{P}), \Phi \circ \rho) \geq \Phi(\delta) \inf _{\Psi} \mathbb{P}\left(\Psi\left(X_1, \ldots, X_n\right) \neq V\right)$$
+
+where the infimum ranges over all testing functions.
+
+### Two Inequalities between divergences and Product Distributions
+
+First we give the definition of KL-divergence,total variance distance and Hellinger distance via the generalized f-divergence:
+
+$$D_f(P||Q) := \infty q(x) f(\frac{p(x)}{q(x)}) d \mu(x)$$
+
+- KL-divergence: $f(t)$ = tlogt$
+- Total Variance Distance: $f(t) = \frac{1}{2} |t-1|$
+- Hellinger Distance: $f(t) = (\sqrt{t}-1)^2$
+
+The following is the inequalities of these three divergences:
+
+$$\frac{1}{2} d_{\text {hel }}(P, Q)^2 \leq\|P-Q\|_{\mathrm{TV}} \leq d_{\mathrm{hel}}(P, Q) \sqrt{1-d_{\text {hel }}(P, Q)^2 / 4}$$
+
+$$\|P-Q\|_{\mathrm{TV}}^2 \leq \frac{1}{2} D_{\mathrm{kl}}(P \| Q) \text{Pinsker's Inequality}$$ 
+
+In terms of divergence properties in product distribution, we have:
+
+$$\underline{D_{\mathrm{kl}}(P \| Q)=} \sum_{\underline{i=1}}^n \underline{D_{\mathrm{kl}}\left(P_i \| Q_i\right)}$$
+
+$$d_{hel}(P,Q)^2 = 2 - 2 \prod_{i=1}^n (1 - \frac{1}{2} d_{hel}(P_i,Q_i)^2$$
+
+### Metric Entropy and packing numbers
+
+
 
 ## Le Cam Method
 Le Cam method provides lower bounds for single binary hypothesis testing problems, which utilize the connection between the hypothesis testing error and total variance distance. Suppose that we set the hypothesis on the specific two distributions $P_1$ and $P_2$ and conduct any test $\Phi: \mathcal{X} \rightarrow \{1,2\}$, we formulize the probability of the testing error: 
 $$\mathbb{P}(\Phi(X) \neq V) = \frac{1}{2}P_1(\Phi(X) \neq 1) + \frac{1}{2}P_2(\Phi(X) \neq 2)$$
-Then according to the inequality: 
+Then according to the equality: 
 $$\mathop{inf}\limits_{\Phi} \{P_1(\Phi(X) \neq 1) + P_2(\Phi(X) \neq 2)\} = 1 - ||P_1 - P_2||_{TV}$$
 we have: 
 
