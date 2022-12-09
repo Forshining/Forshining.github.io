@@ -11,13 +11,13 @@ In the classical estimation problem in statistics, mean-squared error is a frequ
 
 For a distribution $P \in \mathbb{P}$, we assume that we receive i.i.d. observations $X_i$ drawn according to specific distribution P. Based on these data, our aim is to estimate an unknown parameter $\theta(P) \in \Theta$.  To evaluate the quality of an estimator $\hat{\theta}$, we first give two notions: let $\rho: \Theta \times \Theta \rightarrow \mathbb{R}_{+}$ denote a (semi)metric on the parameter space $\Theta$ and $\Phi: \mathbb{R}_+ \rightarrow \mathbb{R}_+$ be a non-decreasing function with constraint $\Theta(0) = 0$. Hence, we could assess the quality of the estimate $\hat{\theta}(X_1,...,X_n)$ in terms of the generalized risk: 
 
-$$\mathbb{E}_P[\Phi(\rho(\hat{\theta}(X_1,...X_n),\theta(P)))]$$
+$$\mathbb{E}_P \[\Phi(\rho(\hat{\theta}(X_1,...X_n),\theta(P)))\]$$
 
 which could be interpreted as the expectation of the penalty function in distribution P of the distance between the estimator and true parameter under some specific (semi)metric.
 
-However, sometimes this kind of estimator will not be a good measure when we consider the risk functional not in a pointwise sense. There are two common approaches to tackle this thorny problem: one is via Bayesian view and another is the Wald method which also refers to the minimax risk function and we will give an introduction to the second approach, that is to find the $\hat{\theta}$ to minimize the maximum risk $sup_{P \in \mathbb{P}} \mathbb{E}_P[\Phi(\rho(\hat{\theta}(X_1,...X_n),\theta(P)))]$. We formalize this with strong intuition as follows:
+However, sometimes this kind of estimator will not be a good measure when we consider the risk functional not in a pointwise sense. There are two common approaches to tackle this thorny problem: one is via Bayesian view and another is the Wald method which also refers to the minimax risk function and we will give an introduction to the second approach, that is to find the $\hat{\theta}$ to minimize the maximum risk $sup_{P \in \mathbb{P}} \mathbb{E}_P\[\Phi(\rho(\hat{\theta}(X_1,...X_n),\theta(P)))\]$. We formalize this with strong intuition as follows:
 
-$$\mathfrak{M}_n(\theta(P),\Phi \circ \rho) = inf_{\hat{\theta}} sup_{P \in \mathbb{P}} \mathbb{E}_P[\Phi(\rho(\hat{\theta}(X_1,...X_n),\theta(P)))]$$
+$$\mathfrak{M}_n(\theta(P),\Phi \circ \rho) = inf_{\hat{\theta}} sup_{P \in \mathbb{P}} \mathbb{E}_P\[\Phi(\rho(\hat{\theta}(X_1,...X_n),\theta(P)))\]$$
 
 Providing lower bound gives the convergence rate on some sense, which is significant to make comparisons among different estimators to conclude the best one. Accordingly, there are a few tools which are widely used in proving the lower bound of minimax problems, such as Le Cam's, Fano's and Assouad method that we will illustrate in the following context.
 
@@ -32,7 +32,7 @@ $$\mathbb{P}(\Phi(X) \neq V) = \frac{1}{2}P_1(\Phi(X) \neq 1) + \frac{1}{2}P_2(\
 Then according to the inequality: 
 
 $$\mathop{inf}\limits_{\Phi} \{P_1(\Phi(X) \neq 1) + P_2(\Phi(X) \neq 2)\} = 1 - ||P_1 - P_2||_{TV}$$
-we have: $$\mathfrak{M}_n(\theta(P),\Phi \circ \rho) \geq \Phi(\delta) \mathbb{P}(\Phi(X_1^n) \neq V) \geq \frac{1}{2} \Phi(\delta) [1 - ||P_1 - P_2||_{TV}]$$
+we have: $$\mathfrak{M}_n(\theta(P),\Phi \circ \rho) \geq \Phi(\delta) \mathbb{P}(\Phi(X_1^n) \neq V) \geq \frac{1}{2} \Phi(\delta) \[1 - ||P_1 - P_2||_{TV}\]$$
 
 Hence, the following strategy is to find suitable $P_1$ and $P_2$ to bound the total variance distance and the minimax risk sequantially.
 ## Fano Method
