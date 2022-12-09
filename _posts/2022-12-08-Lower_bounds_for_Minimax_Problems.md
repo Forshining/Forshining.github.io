@@ -59,13 +59,13 @@ $$d_{hel}(P,Q)^2 = 2 - 2 \prod_{i=1}^n (1 - \frac{1}{2} d_{hel}(P_i,Q_i)^2$$
 
 Definition $1$ (Covering number). Let $\Theta$ be a set with (semi)metric $\rho$. A $\delta$-cover of the set $\Theta$ with respect to $\rho$ is a set $\{\theta_1, \ldots, \theta_N \}$ such that for any point $\theta \in \Theta$, there exists some $v \in\{1, \ldots, N\}$ such that $\rho\left(\theta, \theta_v\right) \leq \delta$. The $\delta$-covering number of $\Theta$ is:
 
-$$N(\delta, \Theta, \rho):=\inf \left\{N \in \mathbb{N} \text { : there exists a } \delta \text {-cover } \theta_1, \ldots, \theta_N \text { of } \Theta\right\}$$
+$$N(\delta, \Theta, \rho):=\inf \{N \in \mathbb{N} \text { : there exists a } \delta \text {-cover } \theta_1, \ldots, \theta_N \text { of } \Theta \}$$
 
 The metric entropy is simply the logarithm of the $\delta$-covering number.
 
 Definition $2$ (Packing number) Let $\Theta$ be a set with (semi)metric $\rho$. A $\delta$-packing of the set $\Theta$ with respect to $\rho$ is a set $\{\theta_1, \ldots, \theta_N \}$ such that for any point $\theta \in \Theta$, there exists some $v \in\{1, \ldots, N\}$ such that $\rho\left(\theta, \theta_v\right) \geq \delta$. The $\delta$-packing number is defined as follows:
 
-$$M(\delta, \Theta, \rho):=\sup \left\{N \in \mathbb{N} \text { : there exists a } \delta \text {-packing } \theta_1, \ldots, \theta_N \text { of } \Theta\right\}$$
+$$M(\delta, \Theta, \rho):=\sup \{N \in \mathbb{N} \text { : there exists a } \delta \text {-packing } \theta_1, \ldots, \theta_N \text { of } \Theta \}$$
 
 ## Le Cam Method
 Le Cam method provides lower bounds for single binary hypothesis testing problems, which utilize the connection between the hypothesis testing error and total variance distance. Suppose that we set the hypothesis on the specific two distributions $P_1$ and $P_2$ and conduct any test $\Phi: \mathcal{X} \rightarrow \{1,2\}$, we formulize the probability of the testing error: 
