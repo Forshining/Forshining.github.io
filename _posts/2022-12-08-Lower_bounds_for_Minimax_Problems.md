@@ -125,7 +125,7 @@ $$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq \delta \sum_{j=1}^d \i
 
 and similar to the Le Cam method:
 
-$$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq \delta \sum_{j=1}^d\left[1-\left\|P_\{+j}-P_{-j}\right\|_{\mathrm{TV}}\right]$$
+$$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq \delta \sum_{j=1}^d\left\[1-\left\|P_\{+j}-P_{-j}\right\|_{\mathrm{TV}}\right\]$$
 
 $$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq d \delta\left(1-\max _{v, j}\left\|P_{v,+j}-P_{v,-j}\right\|_{\mathrm{TV}}\right)$$
 
