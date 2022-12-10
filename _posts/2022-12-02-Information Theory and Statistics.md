@@ -5,6 +5,7 @@ permalink: /posts/2022/07/blog-post-ITS/
 tags:
   - Information Theory
   - Statistics
+sticky: 10000
 ---
 
 Here I'll update some important knowledge about information theory and its connection to statistics. You could refer to this textbook by
