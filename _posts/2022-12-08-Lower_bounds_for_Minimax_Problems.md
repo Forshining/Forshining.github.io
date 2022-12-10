@@ -112,7 +112,23 @@ $$\mathfrak{M}(\theta(\mathcal{P}) ; \Phi \circ \rho) \geq \frac{1}{2} \Phi(\del
 
 ### Distance-Based Fano Method
 
+## Assouad Method
+The technique in Assouad method is slightly different from those in Le Cam's and Fano's method, which alternate the way that tranforms the original estimation problem into the multiple binary hypothesis problems. Hence, we give another definition about the Hamming seperation of arbitrary family of distribution:
 
+Definition $3$ ($\delta$-Hamming Seperation) For any $d \in \mathbb{N}$, let $\mathcal{V} = \{1,-1\}^d$ be a d-dimensional hypercube and a family of distrbution indexed by it, denoted as $\{P_{\mathcal{V}}\}$. We say that the family of distribution $\{P_{\mathcal{V}}\}$ satisfies the $2\delta$-Hamming seperation for the loss $\Theta \circ \rho$ if there exists a test function $\hat{v}: \theta(P) \rightarrow \{1,-1\}^d$ s.t. 
 
+$$\Theta(\rho(\theta,\theta(P))) \geq 2 \delta \sum_{j=1}^d \textbf{1} \{\hat{v_j}(\theta) \neq v_j\}$$
 
+Hence, the sharper version of Assouad's lemma is stated as follows:
 
+$$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq \delta \sum_{j=1}^d \inf_{\Psi}\left[\mathbb{P} (\Psi(X) \neq+1 | V = 1)+\mathbb{P}(\Psi(X) \neq-1 | V = -1)\right]$$
+
+and similar to the Le Cam method:
+
+$$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq \delta \sum_{j=1}^d\left[1-\left\|P_\{+j}-P_{-j}\right\|_{\mathrm{TV}}\right]$$
+
+$$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq d \delta\left(1-\max _{v, j}\left\|P_{v,+j}-P_{v,-j}\right\|_{\mathrm{TV}}\right)$$
+
+$$\mathfrak{M}(\theta(\mathcal{P}), \Phi \circ \rho) \geq \delta d\left[1-\left(\frac{1}{d} \sum_{j=1}^d \sum_{v \in\{-1,1\}^d}\left\|P_{v,+j}-P_{v,-j}\right\|_{\mathrm{TV}}^2\right)^{\frac{1}{2}}\right]$$
+
+where $P_{+j}=2^{1-d} \sum_{v: v_j=1} P_v$ and $P_{+j}=\frac{1}{2^d} \sum_{v \in\{-1,1\}^d} P_{v,+j}$. Using the Cauchy-Schwarz inequality and the convexity of total variance distance we could derive the last one inequality. Note that the previous three inequalities are the weakening versions. Therefore, the strategy for finding specific lower bound is similar to Le Cam's and Fano's method.
