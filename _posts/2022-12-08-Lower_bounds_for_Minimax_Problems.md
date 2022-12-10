@@ -5,6 +5,7 @@ permalink: /posts/2022/12/blog-post-LBMP/
 tags:
   - Information Theory
   - Statistics
+sticky: 1
 ---
 
 In the classical estimation problem in statistics, mean-squared error is a frequantly-used risk function to measure the fitness of certain estimator of certain parameters, which we could generalize as the following formulations:
