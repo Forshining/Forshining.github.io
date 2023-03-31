@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my personal website! Now I'm an undergraduate student majoring in statistics in School of Mathematics at Sun-Yat-Sen University and a coming master majoring in Computer Science, fortunately under the supervision of Prof. Ling Qing<http://home.ustc.edu.cn/~qingling/>.
+Welcome to my personal website! Now I'm an undergraduate student majoring in statistics in School of Mathematics at Sun-Yat-Sen University and a coming master majoring in Computer Science, fortunately under the supervision of [Prof. Ling Qing](http://home.ustc.edu.cn/~qingling/).
 
 My research interests lie in the fields of optimization, machine learning theory, statistics and privacy.
 
