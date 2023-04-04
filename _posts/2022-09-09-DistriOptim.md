@@ -105,7 +105,7 @@ $$
 
 其中，$d_i^0 := \nabla f_i(x_i^0)$，取极限之后我们容易看出，local averaging gradient会趋近于全梯度。同时我们可以通过时间序列当中innovation的概念来理解gradient tracking。
 
-# Topology of Network/Communication
+# Topology of Network/Communications
 
 由于现实中通讯节点很难满足和其他所有节点结合，因此在网络当中，通讯性能和通讯节点的拓扑结构对于提升优化性能来说非常重要，下面我们给出几种常见以及有效的拓扑结构。
 
