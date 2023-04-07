@@ -14,3 +14,4 @@ My research interests lie in the fields of optimization, machine learning theory
 
 If you have any questions with my blogs and projects, please contact me via email and I'll be glad to have a further discussion with you!
 
+My [Curriculum Vitae](https://github.com/Forshining/forshining.github.io/files/11175649/SYSU_CV_Zihui_Weng.pdf) is here.
